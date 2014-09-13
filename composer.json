@@ -1,0 +1,22 @@
+{
+    "name": "hollodotme/utilities",
+    "description": "Simple utilities to include",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Holger Woltersdorf",
+            "email": "hw@hollo.me"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.5"
+    },
+
+    "autoload":    {
+        "psr-4": {
+            "hollodotme\\Utilities\\": "dist/"
+        }
+    }
+}
