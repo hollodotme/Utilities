@@ -24,7 +24,7 @@ abstract class ClassName
 		$trimmed_string    = String::trim( $class_name_string, '\\' );
 		$class_name_parts  = explode( '\\', $trimmed_string );
 
-		if ( self::allClassNamePartsAreEmptyStrings( $class_name_parts ) )
+		if ( empty($class_name_parts) )
 		{
 			return false;
 		}
@@ -40,23 +40,6 @@ abstract class ClassName
 
 			return true;
 		}
-	}
-
-	/**
-	 * @param array $class_name_parts
-	 *
-	 * @return bool
-	 */
-	private static function allClassNamePartsAreEmptyStrings( array $class_name_parts )
-	{
-		$filtered_parts = array_filter(
-			$class_name_parts, function ( $class_name_part )
-			{
-				return ($class_name_part !== '');
-			}
-		);
-
-		return empty($filtered_parts);
 	}
 
 	/**
