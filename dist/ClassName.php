@@ -6,39 +6,52 @@
 
 namespace hollodotme\Utilities;
 
+use hollodotme\Utilities\Exceptions\ArgumentIsNotAValidClassName;
+
 /**
  * Class ClassName
  *
  * @package hollodotme\Utilities
  */
-abstract class ClassName
+class ClassName
 {
+
+	/** @var String */
+	private $class_name;
+
 	/**
-	 * @param mixed $class_name
+	 * @param string $class_name
 	 *
-	 * @return bool
+	 * @throws ArgumentIsNotAValidClassName
 	 */
-	public static function isValid( $class_name )
+	public function __construct( $class_name )
 	{
-		$class_name_string = strval( $class_name );
-		$trimmed_string = String::ltrim( $class_name_string, '\\' );
-		$class_name_parts  = explode( '\\', $trimmed_string );
+		$this->class_name = new String( $class_name );
+
+		$this->guardIsValidClassName();
+	}
+
+	/**
+	 * @throws ArgumentIsNotAValidClassName
+	 */
+	private function guardIsValidClassName()
+	{
+		$this->class_name->trimLeft( '\\' );
+		$class_name_parts = explode( '\\', $this->class_name );
 
 		if ( empty($class_name_parts) )
 		{
-			return false;
+			throw new ArgumentIsNotAValidClassName( (string)$this->class_name );
 		}
 		else
 		{
 			foreach ( $class_name_parts as $class_name_part )
 			{
-				if ( self::isInvalidClassNamePart( $class_name_part ) )
+				if ( $this->isInvalidClassNamePart( $class_name_part ) )
 				{
-					return false;
+					throw new ArgumentIsNotAValidClassName( (string)$this->class_name );
 				}
 			}
-
-			return true;
 		}
 	}
 
@@ -47,7 +60,7 @@ abstract class ClassName
 	 *
 	 * @return bool
 	 */
-	private static function isInvalidClassNamePart( $class_name_part )
+	private function isInvalidClassNamePart( $class_name_part )
 	{
 		if ( $class_name_part === '' )
 		{
@@ -58,6 +71,25 @@ abstract class ClassName
 			return true;
 		}
 		else
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * @param string $class_name
+	 *
+	 * @return bool
+	 */
+	public static function isValid( $class_name )
+	{
+		try
+		{
+			new self( $class_name );
+
+			return true;
+		}
+		catch ( ArgumentIsNotAValidClassName $e )
 		{
 			return false;
 		}

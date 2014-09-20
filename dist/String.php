@@ -6,42 +6,165 @@
 
 namespace hollodotme\Utilities;
 
+use hollodotme\Utilities\Exceptions\ArgumentIsNotRepresentableAsString;
+
 /**
  * Class String
  *
  * @package hollodotme\Utilities
  */
-abstract class String
+class String
 {
 
 	const CANONICAL_SEPARATOR = '.';
 
-	public static function trim( $string, $additional_chars )
+	/** @var string */
+	private $string = '';
+
+	/**
+	 * @param string $string
+	 */
+	public function __construct( $string = '' )
 	{
-		return trim( $string, "\t\n\r\0\x0B{$additional_chars}" );
+		$this->guardConvertableToString( $string );
+
+		$this->string = strval( $string );
 	}
 
-	public static function ltrim( $string, $additional_chars )
+	/**
+	 * @param string $additional_chars
+	 *
+	 * @return $this
+	 */
+	public function trim( $additional_chars )
 	{
-		return ltrim( $string, "\t\n\r\0\x0B{$additional_chars}" );
+		$this->guardConvertableToString( $additional_chars );
+
+		$this->string = trim( $this->string, "\t\n\r\0\x0B{$additional_chars}" );
+
+		return $this;
 	}
 
-	public static function rtrim( $string, $additional_chars )
+	/**
+	 * @param string $additional_chars
+	 *
+	 * @return $this
+	 */
+	public function trimLeft( $additional_chars )
 	{
-		return rtrim( $string, "\t\n\r\0\x0B{$additional_chars}" );
+		$this->guardConvertableToString( $additional_chars );
+
+		$this->string = ltrim( $this->string, "\t\n\r\0\x0B{$additional_chars}" );
+
+		return $this;
 	}
 
-	public static function toCanonical( $string, $separator )
+	/**
+	 * @param string $additional_chars
+	 *
+	 * @return $this
+	 */
+	public function trimRight( $additional_chars )
 	{
-		$string = self::trim( $string, $separator );
+		$this->guardConvertableToString( $additional_chars );
 
-		return str_replace( $separator, self::CANONICAL_SEPARATOR, $string );
+		$this->string = rtrim( $this->string, "\t\n\r\0\x0B{$additional_chars}" );
+
+		return $this;
 	}
 
-	public static function fromCanonical( $string, $glue )
+	/**
+	 * @param string $string
+	 *
+	 * @return $this
+	 */
+	public function removeDuplicatesOf( $string )
 	{
-		$string = self::trim( $string, self::CANONICAL_SEPARATOR );
+		$this->guardConvertableToString( $string );
 
-		return str_replace( self::CANONICAL_SEPARATOR, $glue, $string );
+		$escaped_string = preg_quote( $string, '#' );
+		$this->string   = preg_replace( "#{$escaped_string}+#", '', $this->string );
+
+		return $this;
+	}
+
+	/**
+	 * @param string $separator
+	 *
+	 * @return $this
+	 */
+	public function toCanonical( $separator )
+	{
+		$this->trim( $separator )
+		     ->removeDuplicatesOf( $separator );
+
+		$this->string = str_replace( $separator, self::CANONICAL_SEPARATOR, $this->string );
+
+		return $this;
+	}
+
+	/**
+	 * @param string $glue
+	 *
+	 * @return $this
+	 */
+	public function fromCanonical( $glue )
+	{
+		$this->guardConvertableToString( $glue );
+
+		$this->trim( self::CANONICAL_SEPARATOR )
+		     ->removeDuplicatesOf( self::CANONICAL_SEPARATOR );
+
+		$this->string = str_replace( self::CANONICAL_SEPARATOR, $glue, $this->string );
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return $this->string;
+	}
+
+	/**
+	 * @param mixed $argument
+	 *
+	 * @throws ArgumentIsNotRepresentableAsString
+	 */
+	private function guardConvertableToString( $argument )
+	{
+		if ( is_object( $argument ) && !is_callable( [ $argument, '__toString' ] ) )
+		{
+			throw new ArgumentIsNotRepresentableAsString( gettype( $argument ) );
+		}
+		elseif ( !is_scalar( $argument ) )
+		{
+			throw new ArgumentIsNotRepresentableAsString( gettype( $argument ) );
+		}
+		elseif ( is_bool( $argument ) )
+		{
+			throw new ArgumentIsNotRepresentableAsString( gettype( $argument ) );
+		}
+	}
+
+	/**
+	 * @param mixed $string
+	 *
+	 * @return bool
+	 */
+	public static function isValid( $string )
+	{
+		try
+		{
+			new self( $string );
+
+			return true;
+		}
+		catch ( ArgumentIsNotRepresentableAsString $e )
+		{
+			return false;
+		}
 	}
 }
