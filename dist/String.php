@@ -83,7 +83,7 @@ class String
 		$this->guardConvertableToString( $string );
 
 		$escaped_string = preg_quote( $string, '#' );
-		$this->string   = preg_replace( "#{$escaped_string}+#", '', $this->string );
+		$this->string = preg_replace( "#{$escaped_string}+#", $string, $this->string );
 
 		return $this;
 	}
