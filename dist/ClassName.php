@@ -21,7 +21,7 @@ abstract class ClassName
 	public static function isValid( $class_name )
 	{
 		$class_name_string = strval( $class_name );
-		$trimmed_string    = String::trim( $class_name_string, '\\' );
+		$trimmed_string = String::ltrim( $class_name_string, '\\' );
 		$class_name_parts  = explode( '\\', $trimmed_string );
 
 		if ( empty($class_name_parts) )
