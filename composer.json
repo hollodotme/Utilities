@@ -11,6 +11,10 @@
         }
     ],
 
+    "require-dev": {
+        "hollodotme/treemdown": "~1.0"
+    },
+
     "autoload":    {
         "psr-4": {
             "hollodotme\\Utilities\\": "dist/"
