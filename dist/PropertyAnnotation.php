@@ -6,6 +6,8 @@
 
 namespace hollodotme\Utilities;
 
+use hollodotme\Utilities\Exceptions\BadPropertyAnnotationDetected;
+
 /**
  * Class PropertyAnnotation
  *
@@ -117,8 +119,9 @@ final class PropertyAnnotation
 	{
 		$matches            = [ ];
 		$doc_comment_string = preg_replace( "#\s+#", ' ', $doc_comment_string );
+		$pattern = "#^.*@property-?(read|write)? ([\\\\\w]+) \\$(\w+) ?(.*)?$#i";
 
-		if ( preg_match( "#^.*@property-?(read|write)? (\w+) \\$(\w+) ?(.*)?$#i", $doc_comment_string, $matches ) )
+		if ( preg_match( $pattern, $doc_comment_string, $matches ) )
 		{
 			if ( !strcasecmp( $matches[1], 'read' ) )
 			{
@@ -137,7 +140,7 @@ final class PropertyAnnotation
 		}
 		else
 		{
-			return null;
+			throw new BadPropertyAnnotationDetected( $doc_comment_string );
 		}
 	}
 }

@@ -6,6 +6,7 @@
 
 namespace hollodotme\Utilities;
 
+use hollodotme\Utilities\Exceptions\BadPropertyAnnotationDetected;
 use hollodotme\Utilities\Exceptions\PropertyIsNotReadable;
 use hollodotme\Utilities\Exceptions\PropertyIsNotWritable;
 
@@ -230,6 +231,13 @@ abstract class AnnotatedDTO implements \Serializable, \JsonSerializable
 	 */
 	private function getPropertyAnnotation( $doc_comment_string )
 	{
-		return PropertyAnnotation::fromDocCommentString( $doc_comment_string );
+		try
+		{
+			return PropertyAnnotation::fromDocCommentString( $doc_comment_string );
+		}
+		catch ( BadPropertyAnnotationDetected $e )
+		{
+			return null;
+		}
 	}
 }
