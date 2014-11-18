@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_version = "~> 1.0.0"
 
   # network-config
-  config.vm.network "public_network"
+  config.vm.network "private_network", ip: "192.168.0.15"
   config.vm.boot_timeout = 600
 
   # SSH-config
@@ -32,6 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "file", source: "env/vagrant/ssh_config", destination: "/root/.ssh/config"
 
   # shell commands
-  config.vm.provision "shell", path: "env/vagrant/bootstrap.sh", run: "always"
+  config.vm.provision "shell", path: "env/vagrant/bootstrap.sh"
 
 end

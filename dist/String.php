@@ -135,9 +135,12 @@ class String
 	 */
 	private function guardConvertableToString( $argument )
 	{
-		if ( is_object( $argument ) && !is_callable( [ $argument, '__toString' ] ) )
+		if ( is_object( $argument ) )
 		{
-			throw new ArgumentIsNotRepresentableAsString( gettype( $argument ) );
+			if ( !is_callable( [ $argument, '__toString' ] ) )
+			{
+				throw new ArgumentIsNotRepresentableAsString( gettype( $argument ) );
+			}
 		}
 		elseif ( !is_scalar( $argument ) )
 		{
