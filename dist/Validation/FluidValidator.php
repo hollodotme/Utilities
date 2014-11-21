@@ -87,7 +87,7 @@ class FluidValidator
 	/**
 	 * @param string $message
 	 */
-	private function addMessageIfSet( $message )
+	protected function addMessageIfSet( $message )
 	{
 		if ( !is_null( $message ) )
 		{
