@@ -17,10 +17,10 @@ class FluidValidator
 {
 
 	/** @var bool */
-	private $bool_result;
+	protected $bool_result;
 
 	/** @var array */
-	private $messages;
+	protected $messages;
 
 	public function __construct()
 	{
