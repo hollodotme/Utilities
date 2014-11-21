@@ -89,7 +89,7 @@ class FluidValidator
 	 */
 	protected function addMessageIfSet( $message )
 	{
-		if ( !is_null( $message ) )
+		if ( !empty($message) )
 		{
 			$this->messages[] = $message;
 		}
