@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard for /vagrant/dist/Validation</title>
+    <title>Dashboard for /vagrant/dist/Formatting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/nv.d3.css" rel="stylesheet">
@@ -19,19 +19,19 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="../index.html">/vagrant/dist</a></li>
-                    <li><a href="index.html">Validation</a></li>
+                    <li><a href="index.html">Formatting</a></li>
                     <li class="active">(Dashboard)</li>
 
                 </ol>
             </div>
-    </div>
+        </div>
     </div>
 </header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2>Classes</h2>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -66,7 +66,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Project Risks</h3>
 
@@ -83,12 +83,12 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <h2>Methods</h2>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -123,7 +123,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Project Risks</h3>
 
@@ -140,7 +140,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
     </div>
     <footer>
         <hr/>
@@ -187,7 +187,7 @@
                     .yAxis.tickFormat(d3.format('d'));
 
             d3.select('#methodCoverageDistribution svg')
-                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13], "Method Coverage"))
+                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3], "Method Coverage"))
                     .transition().duration(500).call(chart);
 
             nv.utils.windowResize(chart.update);
@@ -239,7 +239,7 @@
             chart.yAxis.axisLabel('Cyclomatic Complexity');
 
             d3.select('#classComplexity svg')
-                    .datum(getComplexityData([[100, 23, "<a href=\"Validation\/FluidValidator.php.html#16\">FluidValidator<\/a>"]], 'Class Complexity'))
+                    .datum(getComplexityData([[100, 4, "<a href=\"Formatting\/ByteFormatter.php.html#14\">ByteFormatter<\/a>"]], 'Class Complexity'))
                     .transition()
                     .duration(500)
                     .call(chart);
@@ -264,7 +264,7 @@
             chart.yAxis.axisLabel('Method Complexity');
 
             d3.select('#methodComplexity svg')
-                    .datum(getComplexityData([[100, 1, "<a href=\"Validation\/FluidValidator.php.html#25\">FluidValidator::__construct<\/a>"], [100, 1, "<a href=\"Validation\/FluidValidator.php.html#33\">FluidValidator::check<\/a>"], [100, 1, "<a href=\"Validation\/FluidValidator.php.html#38\">FluidValidator::reset<\/a>"], [100, 1, "<a href=\"Validation\/FluidValidator.php.html#47\">FluidValidator::getBoolResult<\/a>"], [100, 1, "<a href=\"Validation\/FluidValidator.php.html#55\">FluidValidator::getMessages<\/a>"], [100, 2, "<a href=\"Validation\/FluidValidator.php.html#66\">FluidValidator::notEmpty<\/a>"], [100, 1, "<a href=\"Validation\/FluidValidator.php.html#82\">FluidValidator::getValue<\/a>"], [100, 2, "<a href=\"Validation\/FluidValidator.php.html#90\">FluidValidator::addMessageIfSet<\/a>"], [100, 3, "<a href=\"Validation\/FluidValidator.php.html#104\">FluidValidator::notEmptyString<\/a>"], [100, 2, "<a href=\"Validation\/FluidValidator.php.html#126\">FluidValidator::isString<\/a>"], [100, 2, "<a href=\"Validation\/FluidValidator.php.html#143\">FluidValidator::isArray<\/a>"], [100, 3, "<a href=\"Validation\/FluidValidator.php.html#160\">FluidValidator::isInt<\/a>"], [100, 3, "<a href=\"Validation\/FluidValidator.php.html#178\">FluidValidator::positiveInt<\/a>"]], 'Method Complexity'))
+                    .datum(getComplexityData([[100, 1, "<a href=\"Formatting\/ByteFormatter.php.html#23\">ByteFormatter::__construct<\/a>"], [100, 1, "<a href=\"Formatting\/ByteFormatter.php.html#33\">ByteFormatter::format<\/a>"], [100, 2, "<a href=\"Formatting\/ByteFormatter.php.html#43\">ByteFormatter::getHumanReadableFormat<\/a>"]], 'Method Complexity'))
                     .transition()
                     .duration(500)
                     .call(chart);
@@ -285,7 +285,7 @@
                     size: 0.05,
                     shape: 'diamond'
                 });
-    });
+            });
 
             return [
                 {
