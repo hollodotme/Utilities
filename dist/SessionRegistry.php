@@ -22,7 +22,6 @@ abstract class SessionRegistry
 	 */
 	public function __construct( array &$session )
 	{
-		session_start();
 		$this->data = &$session;
 	}
 
