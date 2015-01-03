@@ -170,4 +170,24 @@ class String
 			return false;
 		}
 	}
+
+	/**
+	 * @return array
+	 */
+	public function getWords()
+	{
+		$string = $this->replaceChars( $this->string );
+
+		return preg_split( "#[\W_]#", $string, -1, PREG_SPLIT_NO_EMPTY );
+	}
+
+	/**
+	 * @param $string
+	 *
+	 * @return string
+	 */
+	private function replaceChars( $string )
+	{
+		return iconv( 'UTF-8', 'ASCII//TRANSLIT//IGNORE', $string );
+	}
 }

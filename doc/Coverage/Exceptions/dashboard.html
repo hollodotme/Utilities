@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard for /vagrant/dist/Formatting</title>
+    <title>Dashboard for /vagrant/dist/Exceptions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/nv.d3.css" rel="stylesheet">
@@ -19,19 +19,19 @@
             <div class="col-md-12">
                 <ol class="breadcrumb">
                     <li><a href="../index.html">/vagrant/dist</a></li>
-                    <li><a href="index.html">Formatting</a></li>
+                    <li><a href="index.html">Exceptions</a></li>
                     <li class="active">(Dashboard)</li>
 
                 </ol>
             </div>
-    </div>
+        </div>
     </div>
 </header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2>Classes</h2>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -40,14 +40,14 @@
             <div id="classCoverageDistribution" style="height: 300px;">
                 <svg></svg>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Complexity</h3>
 
             <div id="classComplexity" style="height: 300px;">
                 <svg></svg>
             </div>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -66,7 +66,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Project Risks</h3>
 
@@ -83,12 +83,12 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <h2>Methods</h2>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -97,14 +97,14 @@
             <div id="methodCoverageDistribution" style="height: 300px;">
                 <svg></svg>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Complexity</h3>
 
             <div id="methodComplexity" style="height: 300px;">
                 <svg></svg>
             </div>
-    </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">
@@ -123,7 +123,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
         <div class="col-md-6">
             <h3>Project Risks</h3>
 
@@ -140,7 +140,7 @@
                     </tbody>
                 </table>
             </div>
-    </div>
+        </div>
     </div>
     <footer>
         <hr/>
@@ -169,7 +169,7 @@
                     .yAxis.tickFormat(d3.format('d'));
 
             d3.select('#classCoverageDistribution svg')
-                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], "Class Coverage"))
+                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4], "Class Coverage"))
                     .transition().duration(500).call(chart);
 
             nv.utils.windowResize(chart.update);
@@ -187,7 +187,7 @@
                     .yAxis.tickFormat(d3.format('d'));
 
             d3.select('#methodCoverageDistribution svg')
-                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3], "Method Coverage"))
+                    .datum(getCoverageDistributionData([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "Method Coverage"))
                     .transition().duration(500).call(chart);
 
             nv.utils.windowResize(chart.update);
@@ -239,7 +239,7 @@
             chart.yAxis.axisLabel('Cyclomatic Complexity');
 
             d3.select('#classComplexity svg')
-                    .datum(getComplexityData([[100, 4, "<a href=\"ByteFormatter.php.html#14\">ByteFormatter<\/a>"]], 'Class Complexity'))
+                    .datum(getComplexityData([[100, 0, "<a href=\"ArgumentIsNotRepresentableAsString.php.html#14\">ArgumentIsNotRepresentableAsString<\/a>"], [100, 0, "<a href=\"BadPropertyAnnotationDetected.php.html#14\">BadPropertyAnnotationDetected<\/a>"], [100, 0, "<a href=\"PropertyIsNotReadable.php.html#14\">PropertyIsNotReadable<\/a>"], [100, 0, "<a href=\"PropertyIsNotWritable.php.html#14\">PropertyIsNotWritable<\/a>"]], 'Class Complexity'))
                     .transition()
                     .duration(500)
                     .call(chart);
@@ -264,7 +264,7 @@
             chart.yAxis.axisLabel('Method Complexity');
 
             d3.select('#methodComplexity svg')
-                    .datum(getComplexityData([[100, 1, "<a href=\"ByteFormatter.php.html#23\">ByteFormatter::__construct<\/a>"], [100, 1, "<a href=\"ByteFormatter.php.html#33\">ByteFormatter::format<\/a>"], [100, 2, "<a href=\"ByteFormatter.php.html#43\">ByteFormatter::getHumanReadableFormat<\/a>"]], 'Method Complexity'))
+                    .datum(getComplexityData([], 'Method Complexity'))
                     .transition()
                     .duration(500)
                     .call(chart);
@@ -285,7 +285,7 @@
                     size: 0.05,
                     shape: 'diamond'
                 });
-    });
+            });
 
             return [
                 {

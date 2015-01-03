@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_version = "~> 1.0.0"
 
   # network-config
-  config.vm.network "private_network", ip: "192.168.0.15"
+  config.vm.network "private_network", ip: "10.100.10.15"
   config.vm.boot_timeout = 600
 
   # SSH-config
