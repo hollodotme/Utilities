@@ -17,7 +17,25 @@ class CologneIndex
 	 */
 	public static function get( $string, $separator = '' )
 	{
-		return join( $separator, self::getWords( $string ) );
+		return join( $separator, self::getWordsWithIndex( $string ) );
+	}
+
+	/**
+	 * @param string $string
+	 *
+	 * @return array
+	 */
+	public static function getWordsWithIndex( $string )
+	{
+		$words_with_index = array();
+		$words            = self::getWords( $string );
+
+		foreach ( $words as $word )
+		{
+			$words_with_index[ $word ] = self::getIndex( $word );
+		}
+
+		return $words_with_index;
 	}
 
 	/**
@@ -28,12 +46,8 @@ class CologneIndex
 	public static function getWords( $string )
 	{
 		$string = self::replaceChars( $string );
-		$words  = preg_split( "#[\W_]#i", $string, -1, PREG_SPLIT_NO_EMPTY );
 
-		array_map( array( __CLASS__, 'getIndex' ), $words );
-		$words = array_filter( $words, 'trim' );
-
-		return $words;
+		return preg_split( "#[\W_]#i", $string, -1, PREG_SPLIT_NO_EMPTY );
 	}
 
 	/**
