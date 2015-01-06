@@ -83,11 +83,16 @@ class CologneIndex
 		$word = preg_replace( '#[^a-z]#i', '', $word );
 
 		$wordlen = strlen( $word );
-		$char    = str_split( $word );
+		$chars = str_split( $word );
 
-		if ( $char[0] == 'c' )
+		if ( empty($chars) )
 		{
-			switch ( $char[1] )
+			return '';
+		}
+
+		if ( $chars[0] == 'c' )
+		{
+			switch ( $chars[1] )
 			{
 				case 'a':
 				case 'h':
@@ -113,7 +118,7 @@ class CologneIndex
 
 		for ( ; $x < $wordlen; $x++ )
 		{
-			switch ( $char[ $x ] )
+			switch ( $chars[ $x ] )
 			{
 				case 'a':
 				case 'e':
@@ -131,7 +136,7 @@ class CologneIndex
 				{
 					if ( $x + 1 < $wordlen )
 					{
-						switch ( $char[ $x + 1 ] )
+						switch ( $chars[ $x + 1 ] )
 						{
 							case 'c':
 							case 's':
@@ -161,7 +166,7 @@ class CologneIndex
 				{
 					if ( $x + 1 < $wordlen )
 					{
-						switch ( $char[ $x + 1 ] )
+						switch ( $chars[ $x + 1 ] )
 						{
 							case 'a':
 							case 'h':
@@ -170,7 +175,7 @@ class CologneIndex
 							case 'q':
 							case 'u':
 							case 'x':
-								switch ( $char[ $x - 1 ] )
+							switch ( $chars[ $x - 1 ] )
 								{
 									case 's':
 									case 'z':
@@ -195,7 +200,7 @@ class CologneIndex
 				{
 					if ( $x > 0 )
 					{
-						switch ( $char[ $x - 1 ] )
+						switch ( $chars[ $x - 1 ] )
 						{
 							case 'c':
 							case 'k':

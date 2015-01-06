@@ -1,3 +1,5 @@
 .idea/
 vendor/
 .vagrant/
+vagrant
+!env/vagrant
