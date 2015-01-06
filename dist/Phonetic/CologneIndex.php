@@ -92,22 +92,25 @@ class CologneIndex
 
 		if ( $chars[0] == 'c' )
 		{
-			switch ( $chars[1] )
+			if ( isset($chars[1]) )
 			{
-				case 'a':
-				case 'h':
-				case 'k':
-				case 'l':
-				case 'o':
-				case 'q':
-				case 'r':
-				case 'u':
-				case 'x':
-					$code = '4';
-					break;
-				default:
-					$code = '8';
-					break;
+				switch ( $chars[1] )
+				{
+					case 'a':
+					case 'h':
+					case 'k':
+					case 'l':
+					case 'o':
+					case 'q':
+					case 'r':
+					case 'u':
+					case 'x':
+						$code = '4';
+						break;
+					default:
+						$code = '8';
+						break;
+				}
 			}
 			$x = 1;
 		}
