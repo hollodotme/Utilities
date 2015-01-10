@@ -1369,7 +1369,7 @@
 				} else {
 					throw 'SceneGraph: child with that name already exists: ' + name;
 				}
-			}
+				}
 			/*,	// probably unnecessary in Holder
 			 remove: function(name){
 			 if(this.children[name] == null){
