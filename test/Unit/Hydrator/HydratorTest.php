@@ -113,6 +113,26 @@ class HydratorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals( 'Override by ctor', $object->getTest() );
 		$this->assertEquals( 'Override by ctor_args', $object->getString() );
 	}
+
+	public function testCanHydrateMembersOfParentClasses()
+	{
+		$record = [
+			'unit'      => 'Hello',
+			'test'      => 'Real',
+			'string'    => 'World',
+			'extending' => 'In extending class',
+		];
+
+		$hydrator = new Hydrator( ExtendingTestObject::class );
+
+		/** @var ExtendingTestObject $object */
+		$object = $hydrator->fromRecord( $record );
+
+		$this->assertEquals( 'Hello', $object->getUnit() );
+		$this->assertEquals( 'Real', $object->getTest() );
+		$this->assertEquals( 'World', $object->getString() );
+		$this->assertEquals( 'In extending class', $object->getExtending() );
+	}
 }
 
 class TestObject
@@ -168,5 +188,16 @@ class TestObjectWithConstructor
 	public function getString()
 	{
 		return $this->string;
+	}
+}
+
+class ExtendingTestObject extends TestObject
+{
+
+	private $extending;
+
+	public function getExtending()
+	{
+		return $this->extending;
 	}
 }

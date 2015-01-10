@@ -50,7 +50,7 @@ class Hydrator
 	{
 		$object = $this->getObjectWithoutCallingConstructor();
 
-		foreach ( $this->reflection_class->getProperties() as $property )
+		foreach ( $this->getProperties( $this->reflection_class ) as $property )
 		{
 			$this->setPropertyValueIfPossible( $object, $property, $record );
 		}
@@ -66,6 +66,24 @@ class Hydrator
 	private function getObjectWithoutCallingConstructor()
 	{
 		return $this->reflection_class->newInstanceWithoutConstructor();
+	}
+
+	/**
+	 * @param \ReflectionClass $reflection_class
+	 *
+	 * @return array|\ReflectionProperty[]
+	 */
+	private function getProperties( \ReflectionClass $reflection_class )
+	{
+		$properties = $reflection_class->getProperties();
+		$parent     = $reflection_class->getParentClass();
+
+		if ( $parent !== false )
+		{
+			$properties = array_merge( $properties, $this->getProperties( $parent ) );
+		}
+
+		return $properties;
 	}
 
 	/**
