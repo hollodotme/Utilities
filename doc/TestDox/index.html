@@ -57,50 +57,81 @@
       </li>
     </ul>
   <h2 id="hollodotme\Utilities\Test\Unit\Hydrator\HydratorTest">
-    hollodotme\Utilities\Test\Unit\Hydrator\Hydrator
+      hollodotme\Utilities\Test\Unit\Hydrator\Hydrator
   </h2>
   <ul>
-    <li>Construction fails with invalid class names
-    </li>
-    <li>Can hydrate all member types from record
-    </li>
-    <li>Can leave member null when not set in record
-    </li>
-    <li>Record can have more values than members exist
-    </li>
-    <li>Record can be empty
-    </li>
-    <li>Constructor is called after hydration
-    </li>
-    <li>Can hydrate members of parent classes
-    </li>
+      <li>Construction fails with invalid class names
+      </li>
+      <li>Can hydrate all member types from record
+      </li>
+      <li>Can leave member null when not set in record
+      </li>
+      <li>Record can have more values than members exist
+      </li>
+      <li>Record can be empty
+      </li>
+      <li>Constructor is called after hydration
+      </li>
+      <li>Can hydrate members of parent classes
+      </li>
   </ul>
   <h2 id="hollodotme\Utilities\Test\Unit\String\StringTest">
-    hollodotme\Utilities\Test\Unit\String\String
+      hollodotme\Utilities\Test\Unit\String\String
   </h2>
   <ul>
-    <li>Get words
-    </li>
+      <li>Get words
+      </li>
   </ul>
     <h2 id="hollodotme\Utilities\Test\Unit\Validation\FluidValidatorTest">
       hollodotme\Utilities\Test\Unit\Validation\FluidValidator
     </h2>
     <ul>
-      <li>Bool result is true after construction
+        <li>Initial status
       </li>
-      <li>Messages are empty after construction
+        <li>Status after reset is same as initial status
       </li>
-      <li>Not empty array
+        <li>Can suffix or null
       </li>
-      <li>Empty array
+        <li>Calling unknown method fails
       </li>
-      <li>Is not an array
+        <li>Recording messages stops after first failed validation in stop on first fail mode
       </li>
-      <li>Not empty string
+        <li>Recording messages continues after first failed validation in check all mode
       </li>
-      <li>Empty string
+        <li>Is non empty string
       </li>
-      <li>Get messages
+        <li>Is not empty
+        </li>
+        <li>Is array
+        </li>
+        <li>Is int
+        </li>
+        <li>Is int in range
+        </li>
+        <li>Is one string of
+        </li>
+        <li>Is subset of
+        </li>
+        <li>Is uuid
+        </li>
+    </ul>
+  <h2 id="hollodotme\Utilities\Test\Unit\Validation\StringValidatorTest">
+      hollodotme\Utilities\Test\Unit\Validation\StringValidator
+  </h2>
+  <ul>
+      <li>Value is string
+      </li>
+      <li>Value is non empty string
+      </li>
+      <li>Value is int
+      </li>
+      <li>Value is a uuid
+      </li>
+      <li>Value is an email
+      </li>
+      <li>Value is an url
+      </li>
+      <li>Value is json
       </li>
     </ul>
   </body>

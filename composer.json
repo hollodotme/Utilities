@@ -1,23 +1,26 @@
 {
-    "name": "hollodotme/utilities",
-    "description": "Simple utilities to include",
-    "minimum-stability": "stable",
-    "license": "proprietary",
-    "authors": [
-        {
-            "name": "Holger Woltersdorf",
-            "email": "hw@hollo.me",
-            "homepage": "http://github.com/hollodotme"
-        }
-    ],
-
-    "require-dev": {
-        "hollodotme/treemdown": "~1.0"
-    },
-
-    "autoload":    {
-        "psr-4": {
-            "hollodotme\\Utilities\\": "dist/"
-        }
+  "name": "hollodotme/utilities",
+  "description": "Simple utilities to include",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Holger Woltersdorf",
+      "email": "hw@hollo.me",
+      "homepage": "http://github.com/hollodotme"
     }
+  ],
+  "require-dev": {
+    "hollodotme/treemdown": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "hollodotme\\Utilities\\": "dist/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "hollodotme\\Utilities\\Test\\Unit\\": "test/Unit/"
+    }
+  }
 }

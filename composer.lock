@@ -4,21 +4,21 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5e47fafacd14e9b85a2cd39b92531228",
+    "hash": "ee954f0d92083bf5a3937efdc8e3cd4b",
     "packages": [],
     "packages-dev": [
         {
             "name": "erusev/parsedown",
-            "version": "1.1.4",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a"
+                "reference": "9da19c1108c39df9b42adc42e39b8371070652d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
-                "reference": "495e7ac73bb5fde6b857b88ff2bb1b5e79a4263a",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/9da19c1108c39df9b42adc42e39b8371070652d0",
+                "reference": "9da19c1108c39df9b42adc42e39b8371070652d0",
                 "shasum": ""
             },
             "type": "library",
@@ -44,24 +44,24 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2014-11-29 02:29:14"
+            "time": "2015-01-24 13:01:47"
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.1.0",
+            "version": "0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "bcd3930f7f10915e40513e1951a253f061d75463"
+                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/bcd3930f7f10915e40513e1951a253f061d75463",
-                "reference": "bcd3930f7f10915e40513e1951a253f061d75463",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/11a44e076d02ffcc4021713398a60cd73f78b6f5",
+                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown": "~1.0"
+                "erusev/parsedown": "~1.4"
             },
             "type": "library",
             "autoload": {
@@ -88,24 +88,24 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2014-06-18 23:58:16"
+            "time": "2015-01-25 14:52:34"
         },
         {
             "name": "hollodotme/treemdown",
-            "version": "v1.1.2",
+            "version": "v1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hollodotme/TreeMDown.git",
-                "reference": "476cc459584cdc00675a0e66c0600403c553dc8c"
+                "reference": "c187f4d1afb5f4d438417e1d372a7320da1d32ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hollodotme/TreeMDown/zipball/476cc459584cdc00675a0e66c0600403c553dc8c",
-                "reference": "476cc459584cdc00675a0e66c0600403c553dc8c",
+                "url": "https://api.github.com/repos/hollodotme/TreeMDown/zipball/c187f4d1afb5f4d438417e1d372a7320da1d32ad",
+                "reference": "c187f4d1afb5f4d438417e1d372a7320da1d32ad",
                 "shasum": ""
             },
             "require": {
-                "erusev/parsedown-extra": "~0.1.0",
+                "erusev/parsedown-extra": "~0.1",
                 "php": ">=5.3"
             },
             "type": "library",
@@ -136,7 +136,7 @@
                 "search",
                 "tree"
             ],
-            "time": "2014-11-01 19:57:13"
+            "time": "2015-01-12 15:51:33"
         }
     ],
     "aliases": [],
