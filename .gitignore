@@ -3,3 +3,5 @@ vendor/
 .vagrant/
 vagrant
 !env/vagrant
+doc/Coverage/
+doc/TestDox/

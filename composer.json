@@ -11,7 +11,8 @@
     }
   ],
   "require-dev": {
-    "hollodotme/treemdown": "~1.0"
+    "hollodotme/treemdown": "~1.0",
+    "satooshi/php-coveralls": "dev-master"
   },
   "autoload": {
     "psr-4": {
