@@ -9,11 +9,11 @@ namespace hollodotme\Utilities;
 use hollodotme\Utilities\Exceptions\ArgumentIsNotRepresentableAsString;
 
 /**
- * Class String
+ * Class Str
  *
  * @package hollodotme\Utilities
  */
-class String
+class Str
 {
 
 	const CANONICAL_SEPARATOR = '.';

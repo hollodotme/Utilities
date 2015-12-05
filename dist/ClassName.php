@@ -26,7 +26,7 @@ class ClassName
 	 */
 	public function __construct( $class_name )
 	{
-		$this->class_name = new String( $class_name );
+		$this->class_name = new Str( $class_name );
 
 		$this->guardIsValidClassName();
 	}

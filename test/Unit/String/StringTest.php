@@ -6,7 +6,7 @@
 
 namespace hollodotme\Utilities\Test\Unit\String;
 
-use hollodotme\Utilities\String;
+use hollodotme\Utilities\Str;
 
 class StringTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +15,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetWords( $string, array $expected_words )
 	{
-		$str = new String( $string );
+		$str = new Str( $string );
 
 		$this->assertEquals( $expected_words, $str->getWords() );
 	}
